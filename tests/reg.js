@@ -1,0 +1,24 @@
+const express = require('express');
+const chai = require('chai');
+const request = require('supertest');
+const app = express();
+
+describe('POST Create reg', () => {
+    it('should create wallet for the user', () => {
+        // code for testing the api
+    });
+});
+
+
+describe('POST Create reg1', () => {
+    it('should create wallet for the user', () => {
+        // code for testing the api
+    });
+});
+
+
+describe('POST Create reg2', () => {
+    it('should create wallet for the user', () => {
+        // code for testing the api
+    });
+});

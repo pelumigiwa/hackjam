@@ -1,0 +1,1422 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger Mono-Api"
+    },
+    "host": "localhost:8081",
+    "basePath": "/techmillresource/mono-api/api",
+    "tags": [{
+        "name": "audit",
+        "description": "Operations about system audit"
+    }, {
+        "name": "bank",
+        "description": "Operations about bank"
+    }, {
+        "name": "authentication",
+        "description": "Operations about system authentication"
+    }, {
+        "name": "token",
+        "description": "Operations about token"
+    }, {
+        "name": "logs",
+        "description": "Operations about errors"
+    }, {
+        "name": "security",
+        "description": "Operations about system security"
+    }, {
+        "name": "registration",
+        "description": "Operations about user registration in system"
+    }, {
+        "name": "user",
+        "description": "Operations about user in system"
+    }, {
+        "name": "transaction",
+        "description": "Operations about user transaction in system"
+    }],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "securityDefinitions": {
+        "uikey": {
+            "in": "header",
+            "name": "uikey",
+            "type": "apiKey"
+        },
+        "session_key": {
+            "in": "header",
+            "name": "apisessionkey",
+            "type": "apiKey"
+        }
+    },
+    "paths": {
+        "/getAudit": {
+            "post": {
+                "tags": [
+                    "audit"
+                ],
+                "summary": "retrieve audit by userId in system",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "list of audit functions by userId in system",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/GetAudit"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAudit"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/getUserAudit": {
+            "post": {
+                "tags": [
+                    "audit"
+                ],
+                "summary": "retrieve audit for user in system",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "list of user's audit functions in system",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/GetUserAudit"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetUserAudit"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/authentication": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "authenticate user in system",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "user to authenticate in system",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Authentication"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Authentication"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/getInfolog": {
+            "post": {
+                "tags": [
+                    "logs"
+                ],
+                "description": "retrieve info data logged in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "list of info data logged by date",
+                    "schema": {
+                        "$ref": "#/definitions/GetInfolog"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetInfolog"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/getErrorlog": {
+            "post": {
+                "tags": [
+                    "logs"
+                ],
+                "description": "retrieve error(s) logged in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "list of error(s) logged by date",
+                    "schema": {
+                        "$ref": "#/definitions/GetErrorlog"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetErrorlog"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/getDebuglog": {
+            "post": {
+                "tags": [
+                    "logs"
+                ],
+                "description": "retrieve debug data logged in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "list of debug data logged by date",
+                    "schema": {
+                        "$ref": "#/definitions/GetDebuglog"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetDebuglog"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/changePassword": {
+            "post": {
+                "tags": [
+                    "security"
+                ],
+                "description": "change password in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "lender's password to change",
+                    "schema": {
+                        "$ref": "#/definitions/ChangePassword"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ChangePassword"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/forgotPassword": {
+            "post": {
+                "tags": [
+                    "security"
+                ],
+                "description": "send profile's password link to email",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile's email to send password link",
+                    "schema": {
+                        "$ref": "#/definitions/ForgotPassword"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ForgotPassword"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/resetPassword": {
+            "post": {
+                "tags": [
+                    "security"
+                ],
+                "description": "reset profile's password in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile's password to reset",
+                    "schema": {
+                        "$ref": "#/definitions/ResetPassword"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ResetPassword"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/registration": {
+            "post": {
+                "tags": [
+                    "registration"
+                ],
+                "description": "register a new profile in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile's data to register",
+                    "schema": {
+                        "$ref": "#/definitions/Registration"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Registration"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/registrationVerification": {
+            "post": {
+                "tags": [
+                    "registration"
+                ],
+                "description": "verify registred profile in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile to verify",
+                    "schema": {
+                        "$ref": "#/definitions/RegistrationVerification"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/RegistrationVerification"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/getUser": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "user(s) profile in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile of user in system",
+                    "schema": {
+                        "$ref": "#/definitions/GetUser"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetUser"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/updateUser": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "user profile to update in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile of user to update in system",
+                    "schema": {
+                        "$ref": "#/definitions/UpdateUser"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUser"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/twoFactorAuth": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "user two Factor authentication to create/update in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "user two Factor authentication to create/update in system",
+                    "schema": {
+                        "$ref": "#/definitions/TwoFactorAuth"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/TwoFactorAuth"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/validateToken": {
+            "post": {
+                "tags": [
+                    "token"
+                ],
+                "description": "validate profile's token in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "profile's token to validate",
+                    "schema": {
+                        "$ref": "#/definitions/ValidateToken"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ValidateToken"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/resendToken": {
+            "post": {
+                "tags": [
+                    "token"
+                ],
+                "description": "resend token",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "resend token",
+                    "schema": {
+                        "$ref": "#/definitions/ResendToken"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ResendToken"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": []
+                }]
+            }
+        },
+        "/getBank": {
+            "post": {
+                "tags": [
+                    "bank"
+                ],
+                "description": "user(s) bank details in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "bank details of user in system",
+                    "schema": {
+                        "$ref": "#/definitions/GetBank"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetBank"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/createBank": {
+            "post": {
+                "tags": [
+                    "bank"
+                ],
+                "description": "user bank details to create in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "bank details of user to create in system",
+                    "schema": {
+                        "$ref": "#/definitions/CreateBank"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CreateBank"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/updateBank": {
+            "post": {
+                "tags": [
+                    "bank"
+                ],
+                "description": "user bank details to update in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "bank details of user to update in system",
+                    "schema": {
+                        "$ref": "#/definitions/UpdateBank"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateBank"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/getTransaction": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "description": "user(s) transaction details in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "transaction details of user in system",
+                    "schema": {
+                        "$ref": "#/definitions/GetTransaction"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetTransaction"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/getReferenceNo": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "description": "generate a reference number for user(s) in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "reference number generated for user in system",
+                    "schema": {
+                        "$ref": "#/definitions/GetReferenceNo"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetReferenceNo"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        },
+        "/createTransaction": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "description": "user transaction details to create in system",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "transaction details of user to create in system",
+                    "schema": {
+                        "$ref": "#/definitions/CreateTransaction"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CreateTransaction"
+                        }
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                },
+                "security": [{
+                    "uikey": [],
+                    "session_key": []
+                }]
+            }
+        }
+    },
+    "definitions": {
+        "GetAudit": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "userId",
+                "startDate",
+                "endDate",
+                "channel",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "userId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetUserAudit": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "startDate",
+                "endDate",
+                "channel",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "Authentication": {
+            "type": "object",
+            "required": [
+                "loginName",
+                "password",
+                "channel"
+            ],
+            "properties": {
+                "loginName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "password": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetInfolog": {
+            "type": "object",
+            "required": [
+                "startDate",
+                "endDate"
+            ],
+            "properties": {
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "GetErrorlog": {
+            "type": "object",
+            "required": [
+                "startDate",
+                "endDate"
+            ],
+            "properties": {
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "GetDebuglog": {
+            "type": "object",
+            "required": [
+                "startDate",
+                "endDate"
+            ],
+            "properties": {
+                "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "uniqueItems": true
+                }
+            }
+        },
+        "ChangePassword": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "oldPassword",
+                "newPassword",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "oldPassword": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "newPassword": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "ForgotPassword": {
+            "type": "object",
+            "required": [
+                "loginName",
+                "channel"
+            ],
+            "properties": {
+                "loginName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "ResetPassword": {
+            "type": "object",
+            "required": [
+                "password",
+                "resetToken",
+                "channel"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "resetToken": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "Registration": {
+            "type": "object",
+            "required": [
+                "firstName",
+                "lastName",
+                "emailAddress",
+                "phoneNumber",
+                "password",
+                "channel"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "lastName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "password": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "RegistrationVerification": {
+            "type": "object",
+            "required": [
+                "token",
+                "channel"
+            ],
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetUser": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "UpdateUser": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "firstName",
+                "lastName",
+                "emailAddress",
+                "phoneNumber",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "firstName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "lastName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "TwoFactorAuth": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "status",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "status": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "D",
+                        "R"
+                    ]
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "ValidateToken": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "token",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "token": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "ResendToken": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "loginName",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "loginName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetBank": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "CreateBank": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "bankName",
+                "accountNumber",
+                "accountName",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "bankName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "accountNumber": {
+                    "type": "number",
+                    "uniqueItems": true
+                },
+                "accountName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "UpdateBank": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "bankId",
+                "bankName",
+                "accountNumber",
+                "accountName",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "bankId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "bankName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "accountNumber": {
+                    "type": "number",
+                    "uniqueItems": true
+                },
+                "accountName": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetTransaction": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "GetReferenceNo": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        },
+        "CreateTransaction": {
+            "type": "object",
+            "required": [
+                "profileId",
+                "transactionReference",
+                "transactionDescription",
+                "transactionFee",
+                "transactionAmount",
+                "channel"
+            ],
+            "properties": {
+                "profileId": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "transactionReference": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "transactionDescription": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "transactionFee": {
+                    "type": "number",
+                    "uniqueItems": true
+                },
+                "transactionAmount": {
+                    "type": "number",
+                    "uniqueItems": true
+                },
+                "channel": {
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                        "mobile",
+                        "self service"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "Swagger": {
+        "SandBox": {
+            "host": "localhost:8081",
+            "basePath": "/techmillresource/mono-api/api"
+        },
+        "dev": {
+            "host": "api-castlestash.azurewebsites.net",
+            "basePath": "/techmillresource/mono-api/api"
+        },
+        "prod": {
+            "host": "prod-api-castlestash.azurewebsites.net",
+            "basePath": "/techmillresource/mono-api/api"
+        }
+    }
+}
