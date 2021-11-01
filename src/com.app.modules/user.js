@@ -8,7 +8,6 @@ var define = require("node-requirejs-define"),
 
 define(function () {
   function GetUserbyID(req, res, next) {
-    console.log("req.body.id: " + req.body.id);
     let gt_user = {
       session: req.headers["apisessionkey"],
       userId: req.body.id,
@@ -26,7 +25,6 @@ define(function () {
   }
 
   function GetUserbyStudentNumber(req, res, next) {
-    console.log("StudentNr: " + req.body.studentNr);
     let gt_user = {
       session: req.headers["apisessionkey"],
       studentNumber: req.body.studentNr,
@@ -39,6 +37,40 @@ define(function () {
 
         dispatch.SendGenricMessage(res, data.userData);
         logger.info("/getUserbyStudentNumber", JSON.stringify(data));
+      }
+    });
+  }
+
+  function GetStudentModules(req, res, next) {
+    let gt_user = {
+      session: req.headers["apisessionkey"],
+      userId: req.body.id,
+    };
+    bseDao.Query(usrDao.GetStudentModulesSQL(gt_user), (err, resp) => {
+      if (err) {
+        dispatch.SendDataBaseErrorMessage(res, err);
+      } else {
+        var data = JSON.parse(resp);
+
+        dispatch.SendGenricMessage(res, data.moduleData);
+        logger.info("/getStudentModules", JSON.stringify(data));
+      }
+    });
+  }
+
+  function GetYearlyTuition(req, res, next) {
+    let gt_user = {
+      session: req.headers["apisessionkey"],
+      userId: req.body.id,
+    };
+    bseDao.Query(usrDao.GetYearlyTuitionSQL(gt_user), (err, resp) => {
+      if (err) {
+        dispatch.SendDataBaseErrorMessage(res, err);
+      } else {
+        var data = JSON.parse(resp);
+
+        dispatch.SendGenricMessage(res, data.moduleData);
+        logger.info("/getYearlyTuition", JSON.stringify(data));
       }
     });
   }
@@ -141,6 +173,8 @@ define(function () {
   return {
     GetUserbyID: GetUserbyID,
     GetUserbyStudentNumber: GetUserbyStudentNumber,
+    GetStudentModules: GetStudentModules,
+    GetYearlyTuition: GetYearlyTuition,
     UpdateUser: UpdateUser,
     TwoFactorAuth: TwoFactorAuth,
   };

@@ -41,6 +41,8 @@ function routerMain() {
     //users...
     setUpBasendPoint("/getUserbyID", users.GetUserbyID);
     setUpBasendPoint("/getUserbyStudentNumber", users.GetUserbyStudentNumber);
+    setUpBasendPoint("/getStudentModules", users.GetStudentModules);
+    setUpBasendPoint("/getYearlyTuition", users.GetYearlyTuition);
     setUpSecureEndPoint("/updateUser", users.UpdateUser);
     setUpSecureEndPoint("/twoFactorAuth", users.TwoFactorAuth);
 

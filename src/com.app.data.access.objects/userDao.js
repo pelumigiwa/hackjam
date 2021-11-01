@@ -26,6 +26,18 @@ class UserDAO {
     return sql;
   }
 
+  static GetStudentModulesSQL(obj) {
+    let params = `'${obj.session}','${obj.userId}'`;
+    let sql = `CALL sp_student_modules_get(${params})`;
+    return sql;
+  }
+
+  static GetYearlyTuitionSQL(obj) {
+    let params = `'${obj.session}','${obj.userId}'`;
+    let sql = `CALL sp_student_yearly_tuition_get(${params})`;
+    return sql;
+  }
+
   static UpdateUserByIdSQL(obj) {
     let params = `'${obj.profileId}','${obj.session}','${obj.firstName}',
         '${obj.lastName}','${obj.email}','${obj.phone}',
