@@ -7,7 +7,7 @@ var define = require("node-requirejs-define"),
   logger = require("../com.app.utils/logHandler").Logger;
 
 define(function () {
-  function GetUser(req, res, next) {
+  function GetUserbyID(req, res, next) {
     console.log("req.body.id: " + req.body.id);
     let gt_user = {
       session: req.headers["apisessionkey"],
@@ -20,7 +20,7 @@ define(function () {
         var data = JSON.parse(resp);
 
         dispatch.SendGenricMessage(res, data.userData);
-        logger.info("/getUser", JSON.stringify(data));
+        logger.info("/getUserbyID", JSON.stringify(data));
       }
     });
   }
@@ -74,7 +74,7 @@ define(function () {
             channel: req.body.channel,
             jsonData: jsnDta,
           };
-          bseDao.Query(usrDao.UpdateUserByIdSQL(up_user), (err, resp) => {
+          bseDao.Query(usrDao.UpdateUserByIDSQL(up_user), (err, resp) => {
             if (err) {
               dispatch.SendDataBaseErrorMessage(res, err);
             } else {
@@ -139,7 +139,7 @@ define(function () {
   }
 
   return {
-    GetUser: GetUser,
+    GetUserbyID: GetUserbyID,
     GetUserbyStudentNumber: GetUserbyStudentNumber,
     UpdateUser: UpdateUser,
     TwoFactorAuth: TwoFactorAuth,

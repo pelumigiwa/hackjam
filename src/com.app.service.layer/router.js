@@ -39,7 +39,7 @@ function routerMain() {
     );
 
     //users...
-    setUpBasendPoint("/getUser", users.GetUser);
+    setUpBasendPoint("/getUserbyID", users.GetUserbyID);
     setUpBasendPoint("/getUserbyStudentNumber", users.GetUserbyStudentNumber);
     setUpSecureEndPoint("/updateUser", users.UpdateUser);
     setUpSecureEndPoint("/twoFactorAuth", users.TwoFactorAuth);

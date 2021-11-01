@@ -15,16 +15,12 @@ class UserDAO {
   }
 
   static GetUserbyIDSQL(obj) {
-    console.log("Session: " + obj.session);
-    console.log("UserId: " + obj.userId);
     let params = `'${obj.session}','${obj.userId}'`;
-    let sql = `CALL sp_profile_details_get(${params})`;
+    let sql = `CALL sp_profile_details_by_id_get(${params})`;
     return sql;
   }
 
   static GetUserbyStudentNumberSQL(obj) {
-    console.log("Session: " + obj.session);
-    console.log("StudentNumber: " + obj.studentNumber);
     let params = `'${obj.session}','${obj.studentNumber}'`;
     let sql = `CALL sp_profile_details_by_student_number_get(${params})`;
     return sql;
