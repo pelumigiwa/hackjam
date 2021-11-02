@@ -1,128 +1,123 @@
 {
-    "validation": {
-        "authentication": {
-            "loginName": "required|string",
-            "password": "required|string",
-            "channel": "required|string"
-        },
-        "auditGet": {
-            "profileId": "required|string",
-            "userId": "required|string",
-            "startDate": "required|string",
-            "endDate": "required|string",
-            "channel": "required|string"
-        },
-        "auditUser": {
-            "profileId": "required|string",
-            "startDate": "required|string",
-            "endDate": "required|string",
-            "channel": "required|string"
-        },
-        "session": {
-            "profileId": "required|string",
-            "searchCriteria": "required|string",
-            "channel": "required|string"
-        },
-        "infoLog": {
-            "startDate": "required|string",
-            "endDate": "required|string"
-        },
-        "errorLog": {
-            "startDate": "required|string",
-            "endDate": "required|string"
-        },
-        "debugLog": {
-            "startDate": "required|string",
-            "endDate": "required|string"
-        },
-        "changePassword": {
-            "profileId": "required|string",
-            "oldPassword": "required|string",
-            "newPassword": "required|string",
-            "channel": "required|string"
-        },
-        "forgotPassword": {
-            "loginName": "required|string",
-            "channel": "required|string"
-        },
-        "resetPassword": {
-            "userPass": "required|string",
-            "resetToken": "required|string",
-            "channel": "required|string"
-        },
-        "registration": {
-            "firstName": "required|string",
-            "lastName": "required|string",
-            "emailAddress": "required|string",
-            "phoneNumber": "required|string",
-            "password": "required|string",
-            "channel": "required|string"
-        },
-        "registerVerify": {
-            "token": "required|string",
-            "channel": "required|string"
-        },
-        "userGet": {
-            "profileId": "required|string",
-            "channel": "required|string"
-        },
-        "userUpdate": {
-            "profileId": "required|string",
-            "firstName": "required|string",
-            "lastName": "required|string",
-            "emailAddress": "required|string",
-            "phoneNumber": "required|string",
-            "channel": "required|string"
-        },
-        "userTwoFactorAuth": {
-            "profileId": "required|string",
-            "status": "required|string",
-            "channel": "required|string"
-        },
-        "validateToken": {
-            "profileId": "required|string",
-            "token": "required|string",
-            "channel": "required|string"
-        },
-        "resendToken": {
-            "profileId": "required|string",
-            "loginName": "required|string",
-            "channel": "required|string"
-        },
-        "bankGet": {
-            "profileId": "required|string",
-            "channel": "required|string"
-        },
-        "bankUpdate": {
-            "profileId": "required|string",
-            "bankId": "required|string",
-            "bankName": "required|string",
-            "accountNumber": "required|integer",
-            "accountName": "required|string",
-            "channel": "required|string"
-        },
-        "bankCreate": {
-            "profileId": "required|string",
-            "bankName": "required|string",
-            "accountNumber": "required|integer",
-            "accountName": "required|string",
-            "channel": "required|string"
-        },
-        "transactionGet": {
-            "profileId": "required|string",
-            "channel": "required|string"
-        },
-        "referenceGet": {
-            "profileId": "required|string",
-            "channel": "required|string"
-        },
-        "transactionCreate": {
-            "profileId": "required|string",
-            "transactionReference": "required|string",
-            "transactionDescription": "required|string",
-            "transactionFee": "required|integer",
-            "transactionAmount": "required|integer",
-            "channel": "required|string"
-        }
+  "validation": {
+    "authentication": {
+      "loginName": "required|string",
+      "password": "required|string",
+      "channel": "required|string"
+    },
+    "auditGet": {
+      "profileId": "required|string",
+      "userId": "required|string",
+      "startDate": "required|string",
+      "endDate": "required|string",
+      "channel": "required|string"
+    },
+    "auditUser": {
+      "profileId": "required|string",
+      "startDate": "required|string",
+      "endDate": "required|string",
+      "channel": "required|string"
+    },
+    "session": {
+      "profileId": "required|string",
+      "searchCriteria": "required|string",
+      "channel": "required|string"
+    },
+    "infoLog": {
+      "startDate": "required|string",
+      "endDate": "required|string"
+    },
+    "errorLog": {
+      "startDate": "required|string",
+      "endDate": "required|string"
+    },
+    "debugLog": {
+      "startDate": "required|string",
+      "endDate": "required|string"
+    },
+    "changePassword": {
+      "profileId": "required|string",
+      "oldPassword": "required|string",
+      "newPassword": "required|string",
+      "channel": "required|string"
+    },
+    "forgotPassword": {
+      "loginName": "required|string",
+      "channel": "required|string"
+    },
+    "resetPassword": {
+      "userPass": "required|string",
+      "resetToken": "required|string",
+      "channel": "required|string"
+    },
+    "registration": {
+      "firstName": "required|string",
+      "lastName": "required|string",
+      "emailAddress": "required|string",
+      "phoneNumber": "required|string",
+      "password": "required|string",
+      "channel": "required|string"
+    },
+    "registerVerify": {
+      "token": "required|string",
+      "channel": "required|string"
+    },
+    "userGet": {
+      "profileId": "required|string",
+      "channel": "required|string"
+    },
+    "userUpdate": {
+      "userId": "required|integer"
+    },
+    "userTwoFactorAuth": {
+      "profileId": "required|string",
+      "status": "required|string",
+      "channel": "required|string"
+    },
+    "validateToken": {
+      "profileId": "required|string",
+      "token": "required|string",
+      "channel": "required|string"
+    },
+    "resendToken": {
+      "profileId": "required|string",
+      "loginName": "required|string",
+      "channel": "required|string"
+    },
+    "bankGet": {
+      "profileId": "required|string",
+      "channel": "required|string"
+    },
+    "bankUpdate": {
+      "profileId": "required|string",
+      "bankId": "required|string",
+      "bankName": "required|string",
+      "accountNumber": "required|integer",
+      "accountName": "required|string",
+      "channel": "required|string"
+    },
+    "bankCreate": {
+      "profileId": "required|string",
+      "bankName": "required|string",
+      "accountNumber": "required|integer",
+      "accountName": "required|string",
+      "channel": "required|string"
+    },
+    "transactionGet": {
+      "profileId": "required|string",
+      "channel": "required|string"
+    },
+    "referenceGet": {
+      "profileId": "required|string",
+      "channel": "required|string"
+    },
+    "transactionCreate": {
+      "profileId": "required|string",
+      "transactionReference": "required|string",
+      "transactionDescription": "required|string",
+      "transactionFee": "required|integer",
+      "transactionAmount": "required|integer",
+      "channel": "required|string"
     }
+  }
 }

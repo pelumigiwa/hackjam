@@ -84,26 +84,24 @@ define(function () {
           logger.error("/updateUser", JSON.stringify(err));
         } else {
           var jsnReq = {
-              profileId: req.body.profileId,
+              userId: req.body.userId,
               session: req.headers["apisessionkey"],
               firstName: req.body.firstName,
               lastName: req.body.lastName,
               email: req.body.emailAddress,
               phone: req.body.phoneNumber,
-              channel: req.body.channel,
             },
             jsnDta = JSON.stringify(jsnReq);
 
           logger.info("/updateUser", jsnDta);
 
           let up_user = {
-            profileId: req.body.profileId,
+            userId: req.body.userId,
             session: req.headers["apisessionkey"],
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.emailAddress,
             phone: req.body.phoneNumber,
-            channel: req.body.channel,
             jsonData: jsnDta,
           };
           bseDao.Query(usrDao.UpdateUserByIDSQL(up_user), (err, resp) => {
@@ -112,7 +110,7 @@ define(function () {
             } else {
               var data = JSON.parse(resp);
 
-              dispatch.SendGenricMessage(res, data);
+              dispatch.SendGenricMessage(res, data.userData);
               logger.info("/updateUser", JSON.stringify(data));
             }
           });

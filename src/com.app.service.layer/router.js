@@ -43,7 +43,7 @@ function routerMain() {
     setUpBasendPoint("/getUserbyStudentNumber", users.GetUserbyStudentNumber);
     setUpBasendPoint("/getStudentModules", users.GetStudentModules);
     setUpBasendPoint("/getYearlyTuition", users.GetYearlyTuition);
-    setUpSecureEndPoint("/updateUser", users.UpdateUser);
+    setUpBasendPoint("/updateUser", users.UpdateUser);
     setUpSecureEndPoint("/twoFactorAuth", users.TwoFactorAuth);
 
     //token...

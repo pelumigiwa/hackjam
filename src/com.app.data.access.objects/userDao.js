@@ -38,11 +38,16 @@ class UserDAO {
     return sql;
   }
 
-  static UpdateUserByIdSQL(obj) {
-    let params = `'${obj.profileId}','${obj.session}','${obj.firstName}',
-        '${obj.lastName}','${obj.email}','${obj.phone}',
-        '${obj.channel}','${obj.jsonData}'`;
-    let sql = `CALL fn_profile_details_update(${params})`;
+  static UpdateUserByIDSQL(obj) {
+    let params = `'${obj.userId}','${obj.session}','${obj.firstName}',
+        '${obj.lastName}','${obj.email}','${obj.phone}'`;
+    //,'${obj.jsonData}'
+    let sql = `CALL sp_profile_details_update(${params});`;
+
+    // GetUserbyIDSQL(obj);
+    // let params2 = `'${obj.session}','${obj.userId}'`;
+    // sql += `\nCALL sp_profile_details_by_id_get(${params2});`;
+
     return sql;
   }
 
