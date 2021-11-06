@@ -58,6 +58,23 @@ define(function () {
     });
   }
 
+  function GetStudentDueDates(req, res, next) {
+    let gt_user = {
+      session: req.headers["apisessionkey"],
+      userId: req.body.id,
+    };
+    bseDao.Query(usrDao.GetStudentDueDatesSQL(gt_user), (err, resp) => {
+      if (err) {
+        dispatch.SendDataBaseErrorMessage(res, err);
+      } else {
+        var data = JSON.parse(resp);
+
+        dispatch.SendGenricMessage(res, data.eventData);
+        logger.info("/getStudentDueDates", JSON.stringify(data));
+      }
+    });
+  }
+
   function GetYearlyTuition(req, res, next) {
     let gt_user = {
       session: req.headers["apisessionkey"],
@@ -122,6 +139,180 @@ define(function () {
     }
   }
 
+  function UpdateStudentInfo(req, res, next) {
+    try {
+      const validationRule = rulecfg.validation.userUpdate;
+      validation.Validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+          dispatch.SendBadRequestMessage(res, err);
+          logger.error("/updateStudentInfo", JSON.stringify(err));
+        } else {
+          var jsnReq = {
+              userId: req.body.userId,
+              session: req.headers["apisessionkey"],
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              preffName: req.body.preffName,
+              email: req.body.emailAddress,
+              phone: req.body.phoneNumber,
+              address1: req.body.address1,
+              address2: req.body.address2,
+              country: req.body.country,
+              postalCode: req.body.postalCode,
+            },
+            jsnDta = JSON.stringify(jsnReq);
+
+          logger.info("/updateStudentInfo", jsnDta);
+
+          let up_user = {
+            userId: req.body.userId,
+            session: req.headers["apisessionkey"],
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            preffName: req.body.preffName,
+            email: req.body.emailAddress,
+            phone: req.body.phoneNumber,
+            address1: req.body.address1,
+            address2: req.body.address2,
+            country: req.body.country,
+            postalCode: req.body.postalCode,
+            jsonData: jsnDta,
+          };
+          bseDao.Query(usrDao.UpdateStudentInfoSQL(up_user), (err, resp) => {
+            if (err) {
+              dispatch.SendDataBaseErrorMessage(res, err);
+            } else {
+              var data = JSON.parse(resp);
+
+              dispatch.SendGenricMessage(res, data);
+              logger.info("/updateStudentInfo", JSON.stringify(data));
+            }
+          });
+        }
+      });
+    } catch (e) {
+      logger.error("/updateStudentInfo", e);
+      dispatch.DispatchErrorMessage(
+        res,
+        "application error in UpdateStudentInfo().."
+      );
+    }
+  }
+
+  function UpdateSponsorInfo(req, res, next) {
+    try {
+      const validationRule = rulecfg.validation.userUpdate;
+      validation.Validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+          dispatch.SendBadRequestMessage(res, err);
+          logger.error("/updateSponsorInfo", JSON.stringify(err));
+        } else {
+          var jsnReq = {
+              userId: req.body.userId,
+              session: req.headers["apisessionkey"],
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              email: req.body.emailAddress,
+              phone: req.body.phoneNumber,
+              address1: req.body.address1,
+              address2: req.body.address2,
+              country: req.body.country,
+            },
+            jsnDta = JSON.stringify(jsnReq);
+
+          logger.info("/updateSponsorInfo", jsnDta);
+
+          let up_user = {
+            userId: req.body.userId,
+            session: req.headers["apisessionkey"],
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.emailAddress,
+            phone: req.body.phoneNumber,
+            address1: req.body.address1,
+            address2: req.body.address2,
+            country: req.body.country,
+            jsonData: jsnDta,
+          };
+          bseDao.Query(usrDao.UpdateSponsorInfoSQL(up_user), (err, resp) => {
+            if (err) {
+              dispatch.SendDataBaseErrorMessage(res, err);
+            } else {
+              var data = JSON.parse(resp);
+
+              dispatch.SendGenricMessage(res, data);
+              logger.info("/updateSponsorInfo", JSON.stringify(data));
+            }
+          });
+        }
+      });
+    } catch (e) {
+      logger.error("/updateSponsorInfo", e);
+      dispatch.DispatchErrorMessage(
+        res,
+        "application error in UpdateSponsorInfo().."
+      );
+    }
+  }
+
+  function UpdateAdditionalContactInfo(req, res, next) {
+    try {
+      const validationRule = rulecfg.validation.userUpdate;
+      validation.Validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+          dispatch.SendBadRequestMessage(res, err);
+          logger.error("/updateAdditionalContactInfo", JSON.stringify(err));
+        } else {
+          var jsnReq = {
+              userId: req.body.userId,
+              session: req.headers["apisessionkey"],
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              email: req.body.emailAddress,
+              phone: req.body.phoneNumber,
+              country: req.body.country,
+            },
+            jsnDta = JSON.stringify(jsnReq);
+
+          logger.info("/updateAdditionalContactInfo", jsnDta);
+
+          let up_user = {
+            userId: req.body.userId,
+            session: req.headers["apisessionkey"],
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.emailAddress,
+            phone: req.body.phoneNumber,
+            country: req.body.country,
+            jsonData: jsnDta,
+          };
+          bseDao.Query(
+            usrDao.UpdateAdditionalContactInfoSQL(up_user),
+            (err, resp) => {
+              if (err) {
+                dispatch.SendDataBaseErrorMessage(res, err);
+              } else {
+                var data = JSON.parse(resp);
+
+                dispatch.SendGenricMessage(res, data);
+                logger.info(
+                  "/updateAdditionalContactInfo",
+                  JSON.stringify(data)
+                );
+              }
+            }
+          );
+        }
+      });
+    } catch (e) {
+      logger.error("/updateAdditionalContactInfo", e);
+      dispatch.DispatchErrorMessage(
+        res,
+        "application error in UpdateAdditionalContactInfo().."
+      );
+    }
+  }
+
   function TwoFactorAuth(req, res, next) {
     try {
       const validationRule = rulecfg.validation.userTwoFactorAuth;
@@ -172,8 +363,12 @@ define(function () {
     GetUserbyID: GetUserbyID,
     GetUserbyStudentNumber: GetUserbyStudentNumber,
     GetStudentModules: GetStudentModules,
+    GetStudentDueDates: GetStudentDueDates,
     GetYearlyTuition: GetYearlyTuition,
     UpdateUser: UpdateUser,
+    UpdateStudentInfo: UpdateStudentInfo,
+    UpdateSponsorInfo: UpdateSponsorInfo,
+    UpdateAdditionalContactInfo: UpdateAdditionalContactInfo,
     TwoFactorAuth: TwoFactorAuth,
   };
 });

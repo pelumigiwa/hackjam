@@ -31,6 +31,11 @@ class UserDAO {
     let sql = `CALL sp_student_modules_get(${params})`;
     return sql;
   }
+  static GetStudentDueDatesSQL(obj) {
+    let params = `'${obj.session}','${obj.userId}'`;
+    let sql = `CALL sp_student_due_dates_get(${params})`;
+    return sql;
+  }
 
   static GetYearlyTuitionSQL(obj) {
     let params = `'${obj.session}','${obj.userId}'`;
@@ -43,11 +48,29 @@ class UserDAO {
         '${obj.lastName}','${obj.email}','${obj.phone}'`;
     //,'${obj.jsonData}'
     let sql = `CALL sp_profile_details_update(${params});`;
+    return sql;
+  }
 
-    // GetUserbyIDSQL(obj);
-    // let params2 = `'${obj.session}','${obj.userId}'`;
-    // sql += `\nCALL sp_profile_details_by_id_get(${params2});`;
+  static UpdateStudentInfoSQL(obj) {
+    let params = `'${obj.userId}','${obj.session}','${obj.firstName}',
+        '${obj.lastName}','${obj.preffName}','${obj.email}','${obj.phone}',
+        '${obj.address1}','${obj.address2}','${obj.country}','${obj.postalCode}'`;
+    let sql = `CALL sp_student_info_update(${params});`;
+    return sql;
+  }
 
+  static UpdateSponsorInfoSQL(obj) {
+    let params = `'${obj.userId}','${obj.session}','${obj.firstName}',
+        '${obj.lastName}','${obj.email}','${obj.phone}',
+        '${obj.address1}','${obj.address2}','${obj.country}'`;
+    let sql = `CALL sp_sponsor_info_update(${params});`;
+    return sql;
+  }
+
+  static UpdateAdditionalContactInfoSQL(obj) {
+    let params = `'${obj.userId}','${obj.session}','${obj.firstName}',
+        '${obj.lastName}','${obj.email}','${obj.phone}','${obj.country}'`;
+    let sql = `CALL sp_add_contact_info_update(${params});`;
     return sql;
   }
 

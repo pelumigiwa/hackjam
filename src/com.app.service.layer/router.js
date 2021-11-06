@@ -42,8 +42,15 @@ function routerMain() {
     setUpBasendPoint("/getUserbyID", users.GetUserbyID);
     setUpBasendPoint("/getUserbyStudentNumber", users.GetUserbyStudentNumber);
     setUpBasendPoint("/getStudentModules", users.GetStudentModules);
+    setUpBasendPoint("/getStudentDueDates", users.GetStudentDueDates);
     setUpBasendPoint("/getYearlyTuition", users.GetYearlyTuition);
     setUpBasendPoint("/updateUser", users.UpdateUser);
+    setUpBasendPoint("/updateStudentInfo", users.UpdateStudentInfo);
+    setUpBasendPoint("/updateSponsorInfo", users.UpdateSponsorInfo);
+    setUpBasendPoint(
+      "/updateAdditionalContactInfo",
+      users.UpdateAdditionalContactInfo
+    );
     setUpSecureEndPoint("/twoFactorAuth", users.TwoFactorAuth);
 
     //token...
