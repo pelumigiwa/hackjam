@@ -1,28 +1,28 @@
 {
-    "connections": {
-        "dev": {
-            "db": {
-                "connectionLimit": 10,
-                "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
-                "user": "castlestashadmin",
-                "password": "CastleStashPassword",
-                "database": "castlestash",
-                "port": "3306",
-                "debug": false,
-                "multipleStatements": true
-            }
-        },
-        "prod": {
-            "db": {
-                "connectionLimit": 10,
-                "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
-                "user": "castlestashadmin",
-                "password": "CastleStashPassword",
-                "database": "castlestash",
-                "port": "3306",
-                "debug": false,
-                "multipleStatements": true
-            }
-        }
+  "connections": {
+    "dev": {
+      "db": {
+        "connectionLimit": 10,
+        "host": "localhost",
+        "user": "root",
+        "password": "HackJam2021",
+        "database": "student_hub",
+        "port": "3306",
+        "debug": false,
+        "multipleStatements": true
+      }
+    },
+    "prod": {
+      "db": {
+        "connectionLimit": 10,
+        "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
+        "user": "castlestashadmin",
+        "password": "CastleStashPassword",
+        "database": "castlestash",
+        "port": "3306",
+        "debug": false,
+        "multipleStatements": true
+      }
     }
+  }
 }
