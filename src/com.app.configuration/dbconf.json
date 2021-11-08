@@ -3,10 +3,10 @@
     "dev": {
       "db": {
         "connectionLimit": 10,
-        "host": "localhost",
-        "user": "root",
-        "password": "HackJam2021",
-        "database": "student_hub",
+        "host": "eu-cdbr-west-01.cleardb.com",
+        "user": "b95f9b46e0d51f",
+        "password": "bc439069",
+        "database": "heroku_877eca9bd3b436f",
         "port": "3306",
         "debug": false,
         "multipleStatements": true
