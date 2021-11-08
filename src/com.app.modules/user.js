@@ -92,6 +92,55 @@ define(function () {
     });
   }
 
+  function AddUser(req, res, next) {
+    try {
+      const validationRule = rulecfg.validation.addUser;
+      validation.Validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+          dispatch.SendBadRequestMessage(res, err);
+          logger.error("/addUser", JSON.stringify(err));
+        } else {
+          var jsnReq = {
+              session: req.headers["apisessionkey"],
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              email: req.body.emailAddress,
+              phone: req.body.phoneNumber,
+              password: req.body.userPassword,
+              studentNumber: req.body.studentNumber,
+            },
+            jsnDta = JSON.stringify(jsnReq);
+
+          logger.info("/addUser", jsnDta);
+
+          let up_user = {
+            session: req.headers["apisessionkey"],
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.emailAddress,
+            phone: req.body.phoneNumber,
+            password: req.body.pword,
+            studentNumber: req.body.studentNumber,
+            jsonData: jsnDta,
+          };
+          bseDao.Query(usrDao.AddUserIDSQL(up_user), (err, resp) => {
+            if (err) {
+              dispatch.SendDataBaseErrorMessage(res, err);
+            } else {
+              var data = JSON.parse(resp);
+
+              dispatch.SendGenricMessage(res, data.userData);
+              logger.info("/addUser", JSON.stringify(data));
+            }
+          });
+        }
+      });
+    } catch (e) {
+      logger.error("/addUser", e);
+      dispatch.DispatchErrorMessage(res, "application error in addUser()..");
+    }
+  }
+
   function UpdateUser(req, res, next) {
     try {
       const validationRule = rulecfg.validation.userUpdate;
@@ -365,6 +414,7 @@ define(function () {
     GetStudentModules: GetStudentModules,
     GetStudentDueDates: GetStudentDueDates,
     GetYearlyTuition: GetYearlyTuition,
+    AddUser: AddUser,
     UpdateUser: UpdateUser,
     UpdateStudentInfo: UpdateStudentInfo,
     UpdateSponsorInfo: UpdateSponsorInfo,

@@ -66,6 +66,14 @@
       "profileId": "required|string",
       "channel": "required|string"
     },
+    "addUser": {
+      "firstName": "required|string",
+      "lastName": "required|string",
+      "emailAddress": "required|string",
+      "phoneNumber": "required|string",
+      "userPassword": "required|string",
+      "studentNumber": "required|string"
+    },
     "userUpdate": {
       "userId": "required|integer"
     },

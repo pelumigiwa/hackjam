@@ -44,6 +44,7 @@ function routerMain() {
     setUpBasendPoint("/getStudentModules", users.GetStudentModules);
     setUpBasendPoint("/getStudentDueDates", users.GetStudentDueDates);
     setUpBasendPoint("/getYearlyTuition", users.GetYearlyTuition);
+    setUpBasendPoint("/addUser", users.AddUser);
     setUpBasendPoint("/updateUser", users.UpdateUser);
     setUpBasendPoint("/updateStudentInfo", users.UpdateStudentInfo);
     setUpBasendPoint("/updateSponsorInfo", users.UpdateSponsorInfo);

@@ -51,6 +51,14 @@ class UserDAO {
     return sql;
   }
 
+  static AddUserIDSQL(obj) {
+    let params = `'${obj.session}','${obj.firstName}',
+        '${obj.lastName}','${obj.email}','${obj.phone}','${obj.password}','${obj.studentNumber}'`;
+    //,'${obj.jsonData}'
+    let sql = `CALL sp_user_add(${params});`;
+    return sql;
+  }
+
   static UpdateStudentInfoSQL(obj) {
     let params = `'${obj.userId}','${obj.session}','${obj.firstName}',
         '${obj.lastName}','${obj.preffName}','${obj.email}','${obj.phone}',
