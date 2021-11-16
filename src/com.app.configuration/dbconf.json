@@ -1,28 +1,28 @@
 {
-    "connections": {
-        "dev": {
-            "db": {
-                "connectionLimit": 10,
-                "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
-                "user": "castlestashadmin",
-                "password": "CastleStashPassword",
-                "database": "castlestash",
-                "port": "3306",
-                "debug": false,
-                "multipleStatements": true
-            }
-        },
-        "prod": {
-            "db": {
-                "connectionLimit": 10,
-                "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
-                "user": "castlestashadmin",
-                "password": "CastleStashPassword",
-                "database": "castlestash",
-                "port": "3306",
-                "debug": false,
-                "multipleStatements": true
-            }
-        }
+  "connections": {
+    "dev": {
+      "db": {
+        "connectionLimit": 10,
+        "host": "eu-cdbr-west-01.cleardb.com",
+        "user": "b95f9b46e0d51f",
+        "password": "bc439069",
+        "database": "heroku_877eca9bd3b436f",
+        "port": "3306",
+        "debug": false,
+        "multipleStatements": true
+      }
+    },
+    "prod": {
+      "db": {
+        "connectionLimit": 10,
+        "host": "castlestash.ccqtorkmuxmi.us-east-2.rds.amazonaws.com",
+        "user": "castlestashadmin",
+        "password": "CastleStashPassword",
+        "database": "castlestash",
+        "port": "3306",
+        "debug": false,
+        "multipleStatements": true
+      }
     }
+  }
 }

@@ -1,7 +1,7 @@
 var fs = require('fs'),
     appcfg = require('../com.app.configuration/appConf.json');
 
-// next we'll want make our Logger object available...
+// next we'll to want make our Logger object available...
 // to whatever file references it.
 var Logger = (exports.Logger = {});
 

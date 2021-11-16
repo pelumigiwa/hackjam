@@ -1,196 +1,195 @@
 {
-    "application": {
-        "name": "Bare-Bone",
-        "port": "8081",
-        "apiSettings": {
-            "secretKey": "783b3s9i3jiis9g3hss83h3b8s7b393h3u",
-            "uiKey": "BareBonesVwesion",
-            "salt": "290f36fd3a256e5e8d0ef3b05f7272ee",
-            "session": {
-                "expiry": "10h"
-            }
-        },
-        "tokenSettings": {
-            "digits": 6,
-            "step": 60,
-            "window": 10
-        },
-        "mailSettings": {
-            "mailProvider": {
-                "provider": "mail.processrus.com",
-                "fromAddress": "info",
-                "senderName": "Techmill Resource",
-                "port": 587,
-                "secure": false,
-                "logger": false,
-                "debug": false,
-                "ignoreTLS": true,
-                "auth": {
-                    "user": "development@processrus.com",
-                    "password": "TechMillResources01@"
-                },
-                "tls": {
-                    "unauthorized": false,
-                    "protocol": "TLSv1_method"
-                }
-            },
-            "mailProvider2": {
-                "sendgrid": {
-                    "from": "seunafolabi@techmillresource.com",
-                    "senderName": "Techmill Resource",
-                    "api": {
-                        "key": "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"
-                    }
-                }
-            },
-            "priority": {
-                "email": "",
-                "description": "Email address for high priority errors"
-            },
-            "enquiry": {
-                "email": "",
-                "description": "Email address for inquiry purposes or general purpose errors"
-            },
-            "templates": {
-                "generic": {
-                    "pug": "/../../views/templates/emailTemplate/emailTemplate.pug"
-                },
-                "otp": {
-                    "pug": "/../../views/templates/emailTemplate/otpTemplate.pug"
-                }
-            }
-        },
-        "smsSettings": {
-            "url": "",
-            "auth": "",
-            "user": "",
-            "password": "",
-            "from": "",
-            "routingGroup": "",
-            "encoding": "",
-            "longMessageMaxParts": 0,
-            "userSuppliedId": "",
-            "protocolId": "",
-            "deliveryReports": ""
-        },
-        "verification": {
-            "url": "register/verify-account",
-            "notice": "An email has been sent to you, kindly check your email for further instructions."
-        },
-        "passwordReset": {
-            "url": "forgot-password/enter-new-password",
-            "notice": "An email has been sent to you, kindly check your email for further instructions. Password reset link may be in your spam folder."
-        },
-        "timeSettings": {
-            "startTimeStamp": " 00:00:00",
-            "endTimeStamp": " 23:59:59"
-        },
-        "logs": {
-            "type": {
-                "info": {
-                    "path": "/../../views/logs/info.txt",
-                    "description": "Reletive path where generic error files will be saved"
-                },
-                "error": {
-                    "path": "/../../views/logs/error.txt",
-                    "description": "Reletive path where generic error files will be saved"
-                },
-                "debug": {
-                    "path": "/../../views/logs/debug.txt",
-                    "description": "Reletive path where generic error files will be saved"
-                }
-            }
-        }
+  "application": {
+    "name": "Bare-Bone",
+    "port": "8081",
+    "apiSettings": {
+      "secretKey": "783b3s9i3jiis9g3hss83h3b8s7b393h3u",
+      "uiKey": "HackJam",
+      "salt": "290f36fd3a256e5e8d0ef3b05f7272ee",
+      "session": {
+        "expiry": "10h"
+      }
     },
-    "cron": {
-        "job": {
-            "name": {
-                "parm": "*/15 * * * *",
-                "description": ""
-            },
-            "sessionTimeOut": {
-                "parm": "15",
-                "description": "Invalidates all sessions every param value in mins.."
-            }
-        }
+    "tokenSettings": {
+      "digits": 6,
+      "step": 60,
+      "window": 10
     },
-    "error": {
-        "dataBaseError": {
-            "code": 100,
-            "description": "A database error has occurred. Contact your system administrator."
+    "mailSettings": {
+      "mailProvider": {
+        "provider": "mail.processrus.com",
+        "fromAddress": "info",
+        "senderName": "Techmill Resource",
+        "port": 587,
+        "secure": false,
+        "logger": false,
+        "debug": false,
+        "ignoreTLS": true,
+        "auth": {
+          "user": "development@processrus.com",
+          "password": "TechMillResources01@"
         },
-        "unauthorized": {
-            "code": 401,
-            "description": "Unauthorized"
-        },
-        "badRequest": {
-            "code": 400,
-            "description": "Bad Request"
-        },
-        "notFound": {
-            "code": 404,
-            "description": "Not Found"
-        },
-        "forbidden": {
-            "code": 403,
-            "description": "Forbidden",
-            "message": "Unauthorised access, new session required"
-        },
-        "internalServerError": {
-            "code": 500,
-            "description": "Internal Server Error"
-        },
-        "notImplemented": {
-            "code": 501,
-            "description": "Not Implemented"
-        },
-        "fileError": {
-            "write": {
-                "code": 701,
-                "description": "Error Occurred While Writing To File"
-            },
-            "read": {
-                "code": 702,
-                "description": "Error Occurred While Reading File"
-            }
-
+        "tls": {
+          "unauthorized": false,
+          "protocol": "TLSv1_method"
         }
+      },
+      "mailProvider2": {
+        "sendgrid": {
+          "from": "seunafolabi@techmillresource.com",
+          "senderName": "Techmill Resource",
+          "api": {
+            "key": "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"
+          }
+        }
+      },
+      "priority": {
+        "email": "",
+        "description": "Email address for high priority errors"
+      },
+      "enquiry": {
+        "email": "",
+        "description": "Email address for inquiry purposes or general purpose errors"
+      },
+      "templates": {
+        "generic": {
+          "pug": "/../../views/templates/emailTemplate/emailTemplate.pug"
+        },
+        "otp": {
+          "pug": "/../../views/templates/emailTemplate/otpTemplate.pug"
+        }
+      }
     },
-    "file": {
-        "general": {
-            "extension": ".pdf",
-            "path": {
-                "save": "/../../views/documents/",
-                "description": "Reletive path where template(s) files will be saved"
-            }
-        }
+    "smsSettings": {
+      "url": "",
+      "auth": "",
+      "user": "",
+      "password": "",
+      "from": "",
+      "routingGroup": "",
+      "encoding": "",
+      "longMessageMaxParts": 0,
+      "userSuppliedId": "",
+      "protocolId": "",
+      "deliveryReports": ""
     },
-    "integration": {
-        "payment": {
-            "paystack": {
-                "api": {
-                    "keys": {
-                        "sandBox": {
-                            "secret": {
-                                "code": "",
-                                "description": "secret test key for transaction verification"
-                            }
-                        },
-                        "production": {
-                            "secret": {
-                                "code": "",
-                                "description": "secret production key for transaction verification"
-                            }
-                        }
-                    },
-                    "verification": {
-                        "url": "https://api.paystack.co/transaction/verify/"
-                    },
-                    "transactions": {
-                        "url": "https://api.paystack.co/transaction"
-                    }
-                }
-            }
+    "verification": {
+      "url": "register/verify-account",
+      "notice": "An email has been sent to you, kindly check your email for further instructions."
+    },
+    "passwordReset": {
+      "url": "forgot-password/enter-new-password",
+      "notice": "An email has been sent to you, kindly check your email for further instructions. Password reset link may be in your spam folder."
+    },
+    "timeSettings": {
+      "startTimeStamp": " 00:00:00",
+      "endTimeStamp": " 23:59:59"
+    },
+    "logs": {
+      "type": {
+        "info": {
+          "path": "/../../views/logs/info.txt",
+          "description": "Reletive path where generic error files will be saved"
+        },
+        "error": {
+          "path": "/../../views/logs/error.txt",
+          "description": "Reletive path where generic error files will be saved"
+        },
+        "debug": {
+          "path": "/../../views/logs/debug.txt",
+          "description": "Reletive path where generic error files will be saved"
         }
+      }
     }
+  },
+  "cron": {
+    "job": {
+      "name": {
+        "parm": "*/15 * * * *",
+        "description": ""
+      },
+      "sessionTimeOut": {
+        "parm": "15",
+        "description": "Invalidates all sessions every param value in mins.."
+      }
+    }
+  },
+  "error": {
+    "dataBaseError": {
+      "code": 100,
+      "description": "A database error has occurred. Contact your system administrator."
+    },
+    "unauthorized": {
+      "code": 401,
+      "description": "Unauthorized"
+    },
+    "badRequest": {
+      "code": 400,
+      "description": "Bad Request"
+    },
+    "notFound": {
+      "code": 404,
+      "description": "Not Found"
+    },
+    "forbidden": {
+      "code": 403,
+      "description": "Forbidden",
+      "message": "Unauthorised access, new session required"
+    },
+    "internalServerError": {
+      "code": 500,
+      "description": "Internal Server Error"
+    },
+    "notImplemented": {
+      "code": 501,
+      "description": "Not Implemented"
+    },
+    "fileError": {
+      "write": {
+        "code": 701,
+        "description": "Error Occurred While Writing To File"
+      },
+      "read": {
+        "code": 702,
+        "description": "Error Occurred While Reading File"
+      }
+    }
+  },
+  "file": {
+    "general": {
+      "extension": ".pdf",
+      "path": {
+        "save": "/../../views/documents/",
+        "description": "Reletive path where template(s) files will be saved"
+      }
+    }
+  },
+  "integration": {
+    "payment": {
+      "paystack": {
+        "api": {
+          "keys": {
+            "sandBox": {
+              "secret": {
+                "code": "",
+                "description": "secret test key for transaction verification"
+              }
+            },
+            "production": {
+              "secret": {
+                "code": "",
+                "description": "secret production key for transaction verification"
+              }
+            }
+          },
+          "verification": {
+            "url": "https://api.paystack.co/transaction/verify/"
+          },
+          "transactions": {
+            "url": "https://api.paystack.co/transaction"
+          }
+        }
+      }
+    }
+  }
 }
